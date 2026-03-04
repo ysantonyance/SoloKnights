@@ -11,6 +11,6 @@ namespace SoloKnights.Models.MainModels
         public int CritChance { get; set; }
         public int Inaccuracy { get; set; }
         public int RarityId { get; set; }
-        public Rarity Rarity { get; set; }
+        public virtual Rarity? Rarity { get; set; }
     }
 }

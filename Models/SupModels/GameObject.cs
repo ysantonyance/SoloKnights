@@ -7,6 +7,6 @@ namespace SoloKnights.Models.SupModels
         public string Description { get; set; }
 
         public int LobbyId { get; set; }
-        public Lobby Lobby { get; set; }
+        public virtual Lobby? Lobby { get; set; }
     }
 }

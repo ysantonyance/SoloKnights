@@ -8,6 +8,6 @@ namespace SoloKnights.Models.SupModels
         public string Img { get; set; }
 
         public int CharacterId { get; set; }
-        public Character Character { get; set; }
+        public virtual Character? Character { get; set; }
     }
 }

@@ -6,9 +6,9 @@ namespace SoloKnights.Models.SupModels
     {
         public int Number {  get; set; }
 
-        public ICollection<Biome> Biomes { get; set; }
-        public ICollection<Level> Levels { get; set; }
-        public ICollection<Enemy> Enemies { get; set; }
-        public ICollection<Boss> Bosses { get; set; }
+        public virtual ICollection<Biome>? Biomes { get; set; }
+        public virtual ICollection<Level>? Levels { get; set; }
+        public virtual ICollection<Enemy>? Enemies { get; set; }
+        public virtual ICollection<Boss>? Bosses { get; set; }
     }
 }

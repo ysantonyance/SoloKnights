@@ -8,8 +8,8 @@ namespace SoloKnights.Models.SupModels
         public BiomeType Type { get; set; }
 
         public int FloorId { get; set; }
-        public Floor Floor { get; set; }
+        public virtual Floor? Floor { get; set; }
 
-        public ICollection<Boss> Bosses { get; set; }
+        public virtual ICollection<Boss>? Bosses { get; set; }
     }
 }

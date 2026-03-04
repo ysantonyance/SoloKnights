@@ -9,6 +9,6 @@ namespace SoloKnights.Models.MainModels
         public string Img { get; set; }
         public string Interactions { get; set; }
         public int PriceId { get; set; }
-        public Price Price { get; set; }
+        public virtual Price? Price { get; set; }
     }
 }

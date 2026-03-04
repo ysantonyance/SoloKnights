@@ -21,13 +21,14 @@ namespace SoloKnights.Data
             modelBuilder.Entity<Character>()
                 .HasOne(c => c.StarterWeapon)
                 .WithOne(sw => sw.Character)
-                .HasForeignKey<StarterWeapon>(sw => sw.CharacterId);
+                .HasForeignKey<StarterWeapon>(sw => sw.CharacterId)
+                .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<Character>()
                 .HasOne(c => c.Passive)
                 .WithMany()
                 .HasForeignKey(c => c.PassiveId)
-                .OnDelete(DeleteBehavior.Cascade);
+                .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<CharacterSkill>()
                 .HasOne(cs => cs.Character)
@@ -41,41 +42,41 @@ namespace SoloKnights.Data
                 .HasForeignKey(s => s.CharacterId)
                 .OnDelete(DeleteBehavior.Cascade);
 
+            modelBuilder.Entity<Skin>()
+                .HasOne(s => s.Price)
+                .WithMany()
+                .HasForeignKey(s => s.PriceId)
+                .OnDelete(DeleteBehavior.NoAction);
+
             modelBuilder.Entity<Weapon>()
                 .HasOne(w => w.Rarity)
                 .WithMany(r => r.Weapons)
                 .HasForeignKey(w => w.RarityId)
-                .OnDelete(DeleteBehavior.Cascade);
+                .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<Enemy>()
                 .HasOne(e => e.Level)
                 .WithMany(l => l.Enemies)
                 .HasForeignKey(e => e.LevelId)
-                .OnDelete(DeleteBehavior.Cascade);
+                .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<Level>()
                 .HasOne(l => l.Floor)
                 .WithMany(f => f.Levels)
                 .HasForeignKey(l => l.FloorId)
-                .OnDelete(DeleteBehavior.Cascade);
+                .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<Biome>()
                 .HasOne(b => b.Floor)
                 .WithMany(f => f.Biomes)
                 .HasForeignKey(b => b.FloorId)
-                .OnDelete(DeleteBehavior.Cascade);
-
-            modelBuilder.Entity<Boss>()
-                .HasOne(b => b.Biome)
-                .WithMany(f => f.Bosses)
-                .HasForeignKey(b => b.BiomeId)
-                .OnDelete(DeleteBehavior.Cascade);
+                .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<Boss>()
                 .HasOne(boss => boss.Biome)
                 .WithMany(b => b.Bosses)
                 .HasForeignKey(boss => boss.BiomeId)
-                .OnDelete(DeleteBehavior.Cascade);
+                .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<GameObject>()
                 .HasOne(o => o.Lobby)

@@ -8,6 +8,6 @@ namespace SoloKnights.Models.SupModels
         public RarityLevel Level { get; set; }
         public ItemColor Color { get; set; }
 
-        public ICollection<Weapon> Weapons { get; set; }
+        public virtual ICollection<Weapon>? Weapons { get; set; }
     }
 }

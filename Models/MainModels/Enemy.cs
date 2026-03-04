@@ -7,6 +7,6 @@ namespace SoloKnights.Models.MainModels
     {
         public EnemyCategory Category { get; set; }
         public int LevelId { get; set; }
-        public Level Level { get; set; }
+        public virtual Level? Level { get; set; }
     }
 }

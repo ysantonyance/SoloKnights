@@ -6,7 +6,7 @@ namespace SoloKnights.Models.MainModels
     {
         public string Description { get; set; }
 
-        public ICollection<GameObject> Objects { get; set; }
-        public ICollection<NPC> NPCs { get; set; }
+        public virtual ICollection<GameObject>? Objects { get; set; }
+        public virtual ICollection<NPC>? NPCs { get; set; }
     }
 }
